@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour {
     public bool directionSwitch;
     public GameObject particleEffect;
     Rigidbody rig;
+    public MapLimits Limits;
 	// Use this for initialization
 	void Start () {
         maxTimer = changeTimer;
@@ -21,6 +22,8 @@ public class EnemyMovement : MonoBehaviour {
 	void Update () {
         Movement();
         switchTimer();
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, Limits.minimumX, Limits.maximumX),
+            Mathf.Clamp(transform.position.y, Limits.minimumY, Limits.maximumY), 0.0f);
 	}
     
     void Movement ()

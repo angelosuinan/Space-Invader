@@ -19,8 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4254566021925258}
-  - component: {fileID: 65082801492729660}
   - component: {fileID: 54482189564269458}
+  - component: {fileID: 114226032267593524}
+  - component: {fileID: 65629233307021124}
   m_Layer: 0
   m_Name: enemyBullet
   m_TagString: enemyBullet
@@ -51,14 +52,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1039720524497154}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 2.52849, y: 2.97, z: -3.5130358}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4933972138518740}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4933972138518740
 Transform:
   m_ObjectHideFlags: 1
@@ -128,15 +129,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &65082801492729660
+--- !u!65 &65629233307021124
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1039720524497154}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.03, y: 6.31, z: 1.24}
   m_Center: {x: 0.55, y: 3.09, z: 0.48}
+--- !u!114 &114226032267593524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1039720524497154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dab4f65ccf9def4da9b9a4ec5e20ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathTimer: 0.5
+  particle: {fileID: 1574021783043466, guid: b728ca03a5bd913409ee5b4817547bb0, type: 2}

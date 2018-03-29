@@ -6,14 +6,23 @@ public class EnemyMovement : MonoBehaviour {
 
     public float speed;
     public float changeTimer;
+    public float shootPower;
     float maxTimer;
     public int hp;
     public bool directionSwitch;
+    public bool canShoot;
+    public Transform shootingPosition;
     public GameObject particleEffect;
+    public GameObject bullet;
+    float shootTimer;
+    float maxShootTimer;
     Rigidbody rig;
     public MapLimits Limits;
 	// Use this for initialization
 	void Start () {
+        shootTimer = Random.Range(1,5);
+        maxShootTimer = shootTimer;
+        Debug.Log(shootTimer);
         maxTimer = changeTimer;
         rig = GetComponent<Rigidbody>();
 	}
@@ -25,6 +34,15 @@ public class EnemyMovement : MonoBehaviour {
         if (transform.position.x == Limits.maximumX || transform.position.x == Limits.minimumX) switchDirection(directionSwitch);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, Limits.minimumX, Limits.maximumX),
             Mathf.Clamp(transform.position.y, Limits.minimumY, Limits.maximumY), 0.0f);
+        shootTimer -= Time.deltaTime;
+        if (canShoot)
+        if(shootTimer <= 0)
+        {
+            
+            GameObject newBullet = Instantiate(bullet, shootingPosition.position, new Quaternion(90,0,0,0 ));
+            newBullet.GetComponent<Rigidbody>().velocity = Vector3.up * -shootPower;
+            shootTimer = maxShootTimer;
+        }
 	}
     
     void Movement ()
@@ -50,6 +68,8 @@ public class EnemyMovement : MonoBehaviour {
 
     private void OnTriggerEnter(Collider col)
     {
+        if (col.gameObject.tag == "enemyBullet")
+            return;
         if (col.gameObject.tag == "friendlyBullet")
         {
             Destroy(col.gameObject);

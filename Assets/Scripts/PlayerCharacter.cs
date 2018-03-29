@@ -65,8 +65,9 @@ public class PlayerCharacter : MonoBehaviour {
     }
     void Shooting ()
     {
-       // CrossPlatformInputManager.GetButton();
-       if (Input.GetKeyDown(KeyCode.Space))
+        bool isShooting = CrossPlatformInputManager.GetButton("Jump");
+        Debug.Log(isShooting);
+       if (isShooting)
         {
             shootAudio.PlayOneShot(shotSound);
             switch(powerUp)

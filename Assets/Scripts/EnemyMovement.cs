@@ -22,6 +22,7 @@ public class EnemyMovement : MonoBehaviour {
 	void Update () {
         Movement();
         switchTimer();
+        if (transform.position.x == Limits.maximumX || transform.position.x == Limits.minimumX) switchDirection(directionSwitch);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, Limits.minimumX, Limits.maximumX),
             Mathf.Clamp(transform.position.y, Limits.minimumY, Limits.maximumY), 0.0f);
 	}
@@ -39,13 +40,9 @@ public class EnemyMovement : MonoBehaviour {
         changeTimer -= Time.deltaTime;
         if (changeTimer < 0)
         {
-            if (directionSwitch)
-                directionSwitch = false;
-            else
-            {
-                directionSwitch = true;
-                changeTimer = maxTimer;
-            }
+            switchDirection(directionSwitch);
+            changeTimer = maxTimer;
+            
                 
               
         }
@@ -70,5 +67,14 @@ public class EnemyMovement : MonoBehaviour {
             if (hp <= 0)
                 Destroy(gameObject);
         }
+    }
+
+    bool switchDirection(bool dir)
+    {
+        if (dir)
+            directionSwitch = false;
+        else
+            directionSwitch = true;
+        return directionSwitch;
     }
 }

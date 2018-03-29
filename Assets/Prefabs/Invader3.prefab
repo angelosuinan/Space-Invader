@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4389273780938788}
   - component: {fileID: 65138120535478324}
   - component: {fileID: 54213660932984850}
+  - component: {fileID: 114606066845789494}
+  - component: {fileID: 114056696959222558}
   m_Layer: 0
   m_Name: Invader3
   m_TagString: Untagged
@@ -135,8 +137,43 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409466466486138}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 31.7, y: 6, z: 21.52}
   m_Center: {x: 0, y: 6.48, z: -2.02}
+--- !u!114 &114056696959222558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409466466486138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d67729bd390cf47baed4dfc8505e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 250
+  changeTimer: 2
+  hp: 1
+  directionSwitch: 1
+  particleEffect: {fileID: 1574021783043466, guid: b728ca03a5bd913409ee5b4817547bb0,
+    type: 2}
+  Limits:
+    minimumX: -17
+    minimumY: -23
+    maximumX: 18
+    maximumY: 15
+--- !u!114 &114606066845789494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409466466486138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dab4f65ccf9def4da9b9a4ec5e20ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathTimer: 8
+  particle: {fileID: 0}

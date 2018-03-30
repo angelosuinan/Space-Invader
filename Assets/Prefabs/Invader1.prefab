@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1718217975054542}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -0.82, y: 12.55, z: 0}
+  m_LocalPosition: {x: 170.26225, y: 81.72986, z: -135.11101}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4860729548233874}
@@ -262,6 +262,9 @@ MonoBehaviour:
   particleEffect: {fileID: 1574021783043466, guid: b728ca03a5bd913409ee5b4817547bb0,
     type: 2}
   bullet: {fileID: 0}
+  powerUp: {fileID: 1360939830315608, guid: 3cdeceb644888964c99d09c49b8efdb5, type: 2}
+  powerDown: {fileID: 1242297328298078, guid: faa67bec2ea36d8468059abcc09fd6b0, type: 2}
+  scoreReward: 1
   Limits:
     minimumX: -17
     minimumY: -23
@@ -278,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d67729bd390cf47baed4dfc8505e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 100
   changeTimer: 4.4
   shootPower: 50
   hp: 1
@@ -288,6 +291,9 @@ MonoBehaviour:
   particleEffect: {fileID: 1574021783043466, guid: b728ca03a5bd913409ee5b4817547bb0,
     type: 2}
   bullet: {fileID: 1039720524497154, guid: 835149282291e42479297cb9be09d3ec, type: 2}
+  powerUp: {fileID: 1360939830315608, guid: 3cdeceb644888964c99d09c49b8efdb5, type: 2}
+  powerDown: {fileID: 1242297328298078, guid: faa67bec2ea36d8468059abcc09fd6b0, type: 2}
+  scoreReward: 1
   Limits:
     minimumX: -17
     minimumY: -23

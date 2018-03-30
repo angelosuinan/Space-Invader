@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class PlayerCharacter : MonoBehaviour {
 
@@ -22,10 +22,15 @@ public class PlayerCharacter : MonoBehaviour {
     public Transform posL;
     public Transform posR;
     public AudioClip shotSound;
+    public GameObject particleEffect;
 
     int powerUp;
     public float shotPower;
     public int hp;
+    int highScore;
+    public int score;
+    public Text scoreText;
+    public Text highScoreText;
 
     AudioSource shootAudio;
 
@@ -33,10 +38,22 @@ public class PlayerCharacter : MonoBehaviour {
     void Start () {
         powerUp = 2;
         shootAudio = GetComponent<AudioSource>();
+        if (!PlayerPrefs.HasKey("highscore"))
+        {
+            highScore = 0;
+            PlayerPrefs.SetInt("highscore", highScore);
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        scoreText.text = score.ToString();
+        highScoreText.text = PlayerPrefs.GetInt("highscore").ToString();
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("highscore", highScore);
+        }
         if (hp <= 0)
         {
             Destroy(gameObject);
@@ -121,6 +138,18 @@ public class PlayerCharacter : MonoBehaviour {
             {
                 powerUp--;
                 Destroy(col.gameObject);
+            }
+        }
+        if(col.gameObject.tag == "enemyBullet")
+        {
+            if (powerUp > 1)
+            {
+                powerUp--;
+                gameObject.GetComponent<PlayerCharacter>().hp--;
+                Instantiate(particleEffect, transform.position, transform.rotation);
+                hp--;
+                if (hp <= 0)
+                    Destroy(gameObject);
             }
         }
     }

@@ -14,8 +14,13 @@ public class EnemyMovement : MonoBehaviour {
     public Transform shootingPosition;
     public GameObject particleEffect;
     public GameObject bullet;
+    public GameObject powerUp;
+    public GameObject powerDown;
     float shootTimer;
     float maxShootTimer;
+    public int scoreReward;
+
+
     Rigidbody rig;
     public MapLimits Limits;
 	// Use this for initialization
@@ -76,7 +81,19 @@ public class EnemyMovement : MonoBehaviour {
             Instantiate(particleEffect, transform.position, transform.rotation);
             hp--;
             if (hp <= 0)
+            {
+                int randomNumber = Random.Range(0, 100);
+                if(randomNumber < 30)
+                {
+                    Instantiate(powerUp, transform.position, powerUp.transform.rotation);
+                }
+                if (randomNumber > 80)
+                {
+                    Instantiate(powerDown, transform.position, powerDown.transform.rotation);
+                }
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacter>().score += scoreReward;
                 Destroy(gameObject);
+            }
 
         }
         if (col.gameObject.tag == "Player")
@@ -85,7 +102,10 @@ public class EnemyMovement : MonoBehaviour {
             Instantiate(particleEffect, transform.position, transform.rotation);
             hp--;
             if (hp <= 0)
+            {
+                col.gameObject.GetComponent<PlayerCharacter>().score += scoreReward;
                 Destroy(gameObject);
+            }
         }
     }
 
@@ -97,4 +117,5 @@ public class EnemyMovement : MonoBehaviour {
             directionSwitch = true;
         return directionSwitch;
     }
+    
 }

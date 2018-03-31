@@ -12,6 +12,8 @@ public class EnemyMovement : MonoBehaviour {
     public bool directionSwitch;
     public bool canShoot;
     public Transform shootingPosition;
+    public Transform shootpos2;
+    public Transform shootpos3;
     public GameObject particleEffect;
     public GameObject bullet;
     public GameObject powerUp;
@@ -47,6 +49,14 @@ public class EnemyMovement : MonoBehaviour {
             GameObject newBullet = Instantiate(bullet, shootingPosition.position, new Quaternion(90,0,0,0 ));
             newBullet.GetComponent<Rigidbody>().velocity = Vector3.up * -shootPower;
             shootTimer = maxShootTimer;
+
+            if (shootpos2 && shootpos3)
+            {
+                GameObject newBullet2 = Instantiate(bullet, shootpos2.position, new Quaternion(90, 0, 0, 0));
+                newBullet2.GetComponent<Rigidbody>().velocity = Vector3.up * -shootPower;
+                GameObject newBullet3 = Instantiate(bullet, shootpos3.position, new Quaternion(90, 0, 0, 0));
+                newBullet3.GetComponent<Rigidbody>().velocity = Vector3.up * -shootPower;
+                }
         }
 	}
     
@@ -93,6 +103,7 @@ public class EnemyMovement : MonoBehaviour {
                 }
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacter>().score += scoreReward;
                 Destroy(gameObject);
+                Destroy(col.gameObject);
             }
 
         }

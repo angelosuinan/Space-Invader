@@ -152,5 +152,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dab4f65ccf9def4da9b9a4ec5e20ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathTimer: 0.5
+  deathTimer: 10
   particle: {fileID: 1574021783043466, guid: b728ca03a5bd913409ee5b4817547bb0, type: 2}

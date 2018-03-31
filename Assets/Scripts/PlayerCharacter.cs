@@ -32,8 +32,11 @@ public class PlayerCharacter : MonoBehaviour {
     public Text scoreText;
     public Text highScoreText;
 
-    AudioSource shootAudio;
+    private float timestamp;
+    public float timeBetweenShots = 0.3333f;  // Allow 3 shots per second
 
+    AudioSource shootAudio;
+    
     float xThrow, yThrow;
     void Start () {
         powerUp = 2;
@@ -84,7 +87,7 @@ public class PlayerCharacter : MonoBehaviour {
     {
         bool isShooting = CrossPlatformInputManager.GetButton("Jump");
 
-       if (isShooting)
+       if (Time.time >= timestamp && isShooting)
         {
             shootAudio.PlayOneShot(shotSound);
             switch(powerUp)
@@ -119,6 +122,7 @@ public class PlayerCharacter : MonoBehaviour {
                     }
                     break;
             }
+            timestamp = Time.time + timeBetweenShots;
         }
     }
 

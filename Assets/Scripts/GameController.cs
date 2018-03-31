@@ -28,32 +28,26 @@ public class GameController : MonoBehaviour {
 
     void SpawnEnemy()
     {
-        int randomNumber = Random.Range(0, 3);
-        switch (randomNumber)
+        int randomNumber = Random.Range(0, 100);
+        
+        if(randomNumber < 40)
+            {
+                Instantiate(enemy1, new Vector3(Random.Range(Limits.minimumX, Limits.maximumX),
+        Random.Range(Limits.minimumY, Limits.maximumY), 0), enemy1.transform.rotation);
+            }
+        if (randomNumber >= 40 && randomNumber <=70)
         {
-            case 0:
-                {
-                    Instantiate(enemy1, new Vector3(Random.Range(Limits.minimumX, Limits.maximumX),
-            Random.Range(Limits.minimumY, Limits.maximumY), 0), enemy1.transform.rotation);
-                } break;
-            case 1:
-                {
-                    Instantiate(enemy2, new Vector3(Random.Range(Limits.minimumX, Limits.maximumX),
-            Random.Range(Limits.minimumY, Limits.maximumY), 0), enemy2.transform.rotation);
-                }
-                break;
-            case 2:
-                {
-                    Instantiate(enemy3, new Vector3(Random.Range(Limits.minimumX, Limits.maximumX),
-            Random.Range(Limits.minimumY, Limits.maximumY), 0), enemy3.transform.rotation);
-                }
-                break;
-            default:
-                {
-                    Instantiate(enemy1, new Vector3(Random.Range(Limits.minimumX, Limits.maximumX),
-            Random.Range(Limits.minimumY, Limits.maximumY), 0), enemy1.transform.rotation);
-                }
-                break;
+                Instantiate(enemy2, new Vector3(Random.Range(Limits.minimumX, Limits.maximumX),
+        Random.Range(Limits.minimumY, Limits.maximumY), 0), enemy2.transform.rotation);
+            }
+        if (randomNumber >= 70 && randomNumber <=90)
+            {
+                Instantiate(enemy3, new Vector3(Random.Range(Limits.minimumX, Limits.maximumX),
+        Random.Range(Limits.minimumY, Limits.maximumY), 0), enemy3.transform.rotation);
+            }
+        if (randomNumber >= 90 && randomNumber <=100)
+        {
+
         }
     }
 }

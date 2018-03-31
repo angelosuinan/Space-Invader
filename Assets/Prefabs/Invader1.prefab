@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1718217975054542}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 170.26225, y: 81.72986, z: -135.11101}
+  m_LocalPosition: {x: 24.2, y: 13.32, z: 1.27}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4860729548233874}
@@ -147,7 +147,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1583531013055774}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -239,8 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dab4f65ccf9def4da9b9a4ec5e20ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathTimer: 8
-  particle: {fileID: 0}
+  deathTimer: 20
+  particle: {fileID: 1574021783043466, guid: b728ca03a5bd913409ee5b4817547bb0, type: 2}
 --- !u!114 &114167781187277408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,6 +259,8 @@ MonoBehaviour:
   directionSwitch: 1
   canShoot: 1
   shootingPosition: {fileID: 0}
+  shootpos2: {fileID: 0}
+  shootpos3: {fileID: 0}
   particleEffect: {fileID: 1574021783043466, guid: b728ca03a5bd913409ee5b4817547bb0,
     type: 2}
   bullet: {fileID: 0}
@@ -281,13 +283,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d67729bd390cf47baed4dfc8505e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 200
   changeTimer: 4.4
   shootPower: 50
   hp: 1
   directionSwitch: 1
-  canShoot: 1
+  canShoot: 0
   shootingPosition: {fileID: 4685601715651894}
+  shootpos2: {fileID: 0}
+  shootpos3: {fileID: 0}
   particleEffect: {fileID: 1574021783043466, guid: b728ca03a5bd913409ee5b4817547bb0,
     type: 2}
   bullet: {fileID: 1039720524497154, guid: 835149282291e42479297cb9be09d3ec, type: 2}
@@ -295,7 +299,7 @@ MonoBehaviour:
   powerDown: {fileID: 1242297328298078, guid: faa67bec2ea36d8468059abcc09fd6b0, type: 2}
   scoreReward: 1
   Limits:
-    minimumX: -17
-    minimumY: -23
-    maximumX: 18
-    maximumY: 15
+    minimumX: -24
+    minimumY: -18
+    maximumX: 24
+    maximumY: 14

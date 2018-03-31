@@ -18,6 +18,8 @@ public class EnemyMovement : MonoBehaviour {
     public GameObject bullet;
     public GameObject powerUp;
     public GameObject powerDown;
+    public GameObject hpEffect;
+    
     float shootTimer;
     float maxShootTimer;
     public int scoreReward;
@@ -88,8 +90,10 @@ public class EnemyMovement : MonoBehaviour {
         if (col.gameObject.tag == "friendlyBullet")
         {
             Destroy(col.gameObject);
+            
             Instantiate(particleEffect, transform.position, transform.rotation);
             hp--;
+            
             if (hp <= 0)
             {
                 int randomNumber = Random.Range(0, 100);
@@ -97,7 +101,7 @@ public class EnemyMovement : MonoBehaviour {
                 {
                     Instantiate(powerUp, transform.position, powerUp.transform.rotation);
                 }
-                if (randomNumber > 80)
+                else if (randomNumber > 80)
                 {
                     Instantiate(powerDown, transform.position, powerDown.transform.rotation);
                 }

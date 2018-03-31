@@ -11,9 +11,14 @@ public class GameController : MonoBehaviour {
     public GameObject enemy3;
     public float spawnTimer;
     float maxSpawnTimer;
-	void Start () {
+    public Camera firstPersonCamera;
+    public Camera overheadCamera;
+
+    void Start () {
         SpawnEnemy();
         maxSpawnTimer = spawnTimer;
+        firstPersonCamera.gameObject.SetActive(false);
+        overheadCamera.gameObject.SetActive(true);
     }
 	
 	// Update is called once per frame

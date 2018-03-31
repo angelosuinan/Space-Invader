@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerCharacter : MonoBehaviour {
 
@@ -29,8 +30,9 @@ public class PlayerCharacter : MonoBehaviour {
     public int hp;
     int highScore;
     public int score;
-    public Text scoreText;
-    public Text highScoreText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highScoreText;
+    public TextMeshProUGUI hpText;
 
     private float timestamp;
     public float timeBetweenShots = 0.3333f;  // Allow 3 shots per second
@@ -39,6 +41,7 @@ public class PlayerCharacter : MonoBehaviour {
     
     float xThrow, yThrow;
     void Start () {
+
         powerUp = 2;
         shootAudio = GetComponent<AudioSource>();
         if (!PlayerPrefs.HasKey("highscore"))
@@ -51,6 +54,7 @@ public class PlayerCharacter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         scoreText.text = score.ToString();
+        hpText.text = hp.ToString();
         highScoreText.text = PlayerPrefs.GetInt("highscore").ToString();
         if (score > highScore)
         {
@@ -135,6 +139,12 @@ public class PlayerCharacter : MonoBehaviour {
                 powerUp++;
                 Destroy(col.gameObject);
             }
+            else
+            {
+                gameObject.GetComponent<PlayerCharacter>().hp++;
+                Destroy(col.gameObject);
+            }
+
         }
         if (col.gameObject.tag == "powerDown")
         {
@@ -143,18 +153,20 @@ public class PlayerCharacter : MonoBehaviour {
                 powerUp--;
                 Destroy(col.gameObject);
             }
+            else
+            {              
+                Destroy(col.gameObject);
+            }
         }
         if(col.gameObject.tag == "enemyBullet")
         {
-            if (powerUp > 1)
-            {
-                powerUp--;
-                gameObject.GetComponent<PlayerCharacter>().hp--;
-                Instantiate(particleEffect, transform.position, transform.rotation);
-                hp--;
-                if (hp <= 0)
-                    Destroy(gameObject);
-            }
+            
+            gameObject.GetComponent<PlayerCharacter>().hp--;
+            Destroy(col.gameObject);
+            Instantiate(particleEffect, transform.position, transform.rotation);
+            hp--;
+            if (hp <= 0)
+                Destroy(gameObject);
         }
     }
 }

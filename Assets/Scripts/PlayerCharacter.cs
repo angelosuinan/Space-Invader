@@ -4,6 +4,7 @@ using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerCharacter : MonoBehaviour {
 
@@ -33,14 +34,15 @@ public class PlayerCharacter : MonoBehaviour {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI hpText;
+    public GameObject gameOver;
 
     private float timestamp;
     public float timeBetweenShots = 0.3333f;  // Allow 3 shots per second
 
     AudioSource shootAudio;
-    
+
     float xThrow, yThrow;
-    void Start () {
+    void Start() {
 
         powerUp = 2;
         shootAudio = GetComponent<AudioSource>();
@@ -49,10 +51,10 @@ public class PlayerCharacter : MonoBehaviour {
             highScore = 0;
             PlayerPrefs.SetInt("highscore", highScore);
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update() {
         scoreText.text = score.ToString();
         hpText.text = hp.ToString();
         highScoreText.text = PlayerPrefs.GetInt("highscore").ToString();
@@ -70,11 +72,11 @@ public class PlayerCharacter : MonoBehaviour {
 
     }
 
-    void Movement ()
+    void Movement()
     {
         xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         yThrow = CrossPlatformInputManager.GetAxis("Vertical");
-        
+
 
         float xOffset = xThrow * controlSpeed * Time.deltaTime;
         float yOffset = yThrow * controlSpeed * Time.deltaTime;
@@ -87,21 +89,21 @@ public class PlayerCharacter : MonoBehaviour {
 
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
     }
-    void Shooting ()
+    void Shooting()
     {
         bool isShooting = CrossPlatformInputManager.GetButton("Jump");
 
-       if (Time.time >= timestamp && isShooting)
+        if (Time.time >= timestamp && isShooting)
         {
             shootAudio.PlayOneShot(shotSound);
-            switch(powerUp)
+            switch (powerUp)
             {
                 case 1:
                     {
                         print("ASDAS");
                         GameObject newBullet = Instantiate(bullet, pos1.position, transform.rotation);
                         newBullet.GetComponent<Rigidbody>().velocity = Vector3.up * shotPower;
-                    }break;
+                    } break;
                 case 2:
                     {
                         GameObject Bullet1 = Instantiate(bullet, posL.position, transform.rotation);
@@ -122,7 +124,7 @@ public class PlayerCharacter : MonoBehaviour {
                     break;
                 default:
                     {
-                        
+
                     }
                     break;
             }
@@ -154,19 +156,29 @@ public class PlayerCharacter : MonoBehaviour {
                 Destroy(col.gameObject);
             }
             else
-            {              
+            {
                 Destroy(col.gameObject);
             }
         }
-        if(col.gameObject.tag == "enemyBullet")
+        if (col.gameObject.tag == "enemyBullet")
         {
-            
+
             gameObject.GetComponent<PlayerCharacter>().hp--;
             Destroy(col.gameObject);
             Instantiate(particleEffect, transform.position, transform.rotation);
             hp--;
             if (hp <= 0)
+            {
+                Instantiate(gameOver, transform.position, transform.rotation);
                 Destroy(gameObject);
+
+                
+            }
+
         }
     }
+    void returnScene() {
+        Debug.Log("asds");
+        SceneManager.LoadScene(0);
+        }
 }

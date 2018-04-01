@@ -176,7 +176,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1599673595100568}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -210,7 +210,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1535967426887486}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -278,7 +278,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902686841221436}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -422,6 +422,7 @@ MonoBehaviour:
   bullet: {fileID: 1039720524497154, guid: 835149282291e42479297cb9be09d3ec, type: 2}
   powerUp: {fileID: 1360939830315608, guid: 3cdeceb644888964c99d09c49b8efdb5, type: 2}
   powerDown: {fileID: 1242297328298078, guid: faa67bec2ea36d8468059abcc09fd6b0, type: 2}
+  hpEffect: {fileID: 0}
   scoreReward: 5
   Limits:
     minimumX: -24

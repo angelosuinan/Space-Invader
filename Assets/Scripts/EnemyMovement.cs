@@ -31,7 +31,6 @@ public class EnemyMovement : MonoBehaviour {
 	void Start () {
         shootTimer = Random.Range(1,5);
         maxShootTimer = shootTimer;
-        Debug.Log(shootTimer);
         maxTimer = changeTimer;
         rig = GetComponent<Rigidbody>();
 	}

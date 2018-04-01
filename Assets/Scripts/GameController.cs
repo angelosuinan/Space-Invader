@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
     float maxSpawnTimer;
     public Camera firstPersonCamera;
     public Camera overheadCamera;
-
+    public float spawnRateDecrease;
     void Start () {
         SpawnEnemy();
         maxSpawnTimer = spawnTimer;
@@ -26,10 +26,13 @@ public class GameController : MonoBehaviour {
         spawnTimer -= Time.deltaTime;
         if (spawnTimer <= 0)
         {
+            
             SpawnEnemy();
+            spawnTimer = spawnTimer - spawnRateDecrease;
             spawnTimer = maxSpawnTimer;
         }
-	}
+
+    }
 
     void SpawnEnemy()
     {

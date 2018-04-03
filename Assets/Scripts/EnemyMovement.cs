@@ -90,7 +90,7 @@ public class EnemyMovement : MonoBehaviour {
         {
             Destroy(col.gameObject);
             
-            Instantiate(particleEffect, transform.position, transform.rotation);
+            Instantiate(particleEffect, transform.position, new Quaternion(0, 0, 0, 0));
             hp--;
             
             if (hp <= 0)

@@ -260,9 +260,9 @@ MonoBehaviour:
   shootingPosition: {fileID: 4188239138571896}
   shootpos2: {fileID: 0}
   shootpos3: {fileID: 0}
-  particleEffect: {fileID: 1574021783043466, guid: b728ca03a5bd913409ee5b4817547bb0,
+  particleEffect: {fileID: 1222023707686480, guid: 59cc06085d491ca4b814e5e0f42302ed,
     type: 2}
-  bullet: {fileID: 1039720524497154, guid: 835149282291e42479297cb9be09d3ec, type: 2}
+  bullet: {fileID: 1492513923499964, guid: 3556a147a6be18a49bf022c10d1e8c7f, type: 2}
   powerUp: {fileID: 1360939830315608, guid: 3cdeceb644888964c99d09c49b8efdb5, type: 2}
   powerDown: {fileID: 1242297328298078, guid: faa67bec2ea36d8468059abcc09fd6b0, type: 2}
   hpEffect: {fileID: 1179625288612220, guid: f96a6434534c160449b075d2ab30c5f0, type: 2}

@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d67729bd390cf47baed4dfc8505e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 100
   changeTimer: 4.4
   shootPower: 10
   hp: 3

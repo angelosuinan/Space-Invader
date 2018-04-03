@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathTimer: 0.8
-  particle: {fileID: 1574021783043466, guid: b728ca03a5bd913409ee5b4817547bb0, type: 2}
+  particle: {fileID: 1222023707686480, guid: 59cc06085d491ca4b814e5e0f42302ed, type: 2}
 --- !u!123 &123346750153753850
 LensFlare:
   m_ObjectHideFlags: 1

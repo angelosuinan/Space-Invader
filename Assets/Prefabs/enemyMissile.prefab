@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1492513923499964}
   m_LocalRotation: {x: -0.6856375, y: 0.17292008, z: 0.17292011, w: 0.68563735}
-  m_LocalPosition: {x: 131.29298, y: -194.13727, z: -820.3155}
+  m_LocalPosition: {x: 9.155462, y: 0.54874325, z: -0.54593945}
   m_LocalScale: {x: 0.03, y: 0.04, z: 0.03}
   m_Children:
   - {fileID: 4166504471961126}
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dab4f65ccf9def4da9b9a4ec5e20ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathTimer: 0.8
+  deathTimer: 5
   particle: {fileID: 1574021783043466, guid: b728ca03a5bd913409ee5b4817547bb0, type: 2}
 --- !u!123 &123855098968815274
 LensFlare:
@@ -293,7 +293,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1803426238
+  randomSeed: -144183876
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -758,7 +758,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1.5
+      value: 0.01
       mode: 0
       spread: 0
       speed:
@@ -1428,7 +1428,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -72.1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3604,7 +3604,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -222430513
+  randomSeed: -1398140914
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4745,7 +4745,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -36.24
       minScalar: 0
       maxCurve:
         serializedVersion: 2

@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 65676380912015044}
   - component: {fileID: 54783425247135052}
   - component: {fileID: 114073852605105936}
-  - component: {fileID: 114902818373635098}
   - component: {fileID: 114167781187277408}
   m_Layer: 0
   m_Name: Invader1
@@ -252,8 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d67729bd390cf47baed4dfc8505e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 150
-  changeTimer: 4.4
+  speed: 175
+  changeTimer: 2
   shootPower: 1
   hp: 1
   directionSwitch: 1
@@ -273,35 +272,3 @@ MonoBehaviour:
     minimumY: -23
     maximumX: 18
     maximumY: 15
---- !u!114 &114902818373635098
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1718217975054542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d67729bd390cf47baed4dfc8505e87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 200
-  changeTimer: 4.4
-  shootPower: 50
-  hp: 1
-  directionSwitch: 1
-  canShoot: 0
-  shootingPosition: {fileID: 4685601715651894}
-  shootpos2: {fileID: 0}
-  shootpos3: {fileID: 0}
-  particleEffect: {fileID: 1222023707686480, guid: 59cc06085d491ca4b814e5e0f42302ed,
-    type: 2}
-  bullet: {fileID: 1492513923499964, guid: 3556a147a6be18a49bf022c10d1e8c7f, type: 2}
-  powerUp: {fileID: 1360939830315608, guid: 3cdeceb644888964c99d09c49b8efdb5, type: 2}
-  powerDown: {fileID: 1242297328298078, guid: faa67bec2ea36d8468059abcc09fd6b0, type: 2}
-  hpEffect: {fileID: 0}
-  scoreReward: 1
-  Limits:
-    minimumX: -24
-    minimumY: -18
-    maximumX: 24
-    maximumY: 14

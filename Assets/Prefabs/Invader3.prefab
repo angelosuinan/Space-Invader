@@ -240,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   changeTimer: 2
-  shootPower: 15
+  shootPower: 50
   hp: 5
   directionSwitch: 1
   canShoot: 1
